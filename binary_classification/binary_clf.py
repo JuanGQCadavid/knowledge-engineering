@@ -98,7 +98,7 @@ def main_test():
     #print(tabulate(y, headers='keys'))
 
     # Split into train - test data
-    x_train, x_test, x_trainy_train, y_test = train_test_split(df, y, test_size=0.25)
+    x_train, x_test, x_train, y_train, y_test = train_test_split(df, y, test_size=0.25)
 
     # Train
     binary_model = classify(x_train.values, y_train.values.ravel())
@@ -111,7 +111,6 @@ def main_test():
     print('Score decision tree', tree_score)
 
     # Plot
-
 
 def explore_data(df):
     # Taken from https://lukesingham.com/whos-going-to-leave-next/
@@ -131,13 +130,11 @@ def explore_data(df):
     print('Search for missing values')
     print(df.apply(lambda x: sum(x.isnull()), axis=0), '\n')
 
-
 def classify(features_train, labels_train):
     clf = linear_model.LogisticRegression(
         solver='lbfgs', multi_class='multinomial', max_iter=1500)
     clf.fit(features_train, labels_train)
     return clf
-
 
 def tree_classifier(features_train, labels_train):
     clf = tree.DecisionTreeClassifier()
@@ -153,7 +150,6 @@ def tree_classifier(features_train, labels_train):
     graph.render("iris")
     graph'''
     return clf
-
 
 def combinations(df):
     print(len(df))

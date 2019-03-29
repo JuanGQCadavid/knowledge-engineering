@@ -74,7 +74,6 @@ def main():
 
     result_models = random_forest(combinations_iterable,x_train,y_train,x_validation,y_validation)
 
-
     menor = float("inf")
     model = None
     index = -1
@@ -119,9 +118,7 @@ def main():
 
 
 def main_test():
-    print("")
-    lista = ['fixed acidity', 'volatile acidity', 'pH', 'sulphates', 'alcohol']
-    print(lista)
+    lista = ['fixed acidity', 'volatile acidity', 'citric acid', 'residual sugar', 'chlorides', 'free sulfur dioxide','pH', 'sulphates', 'alcohol']
     # Read data from file
     df = pandas.read_csv("whitewine.csv", sep=';')
     # explore_data(df)
@@ -137,12 +134,9 @@ def main_test():
     rmse = mean_squared_error(y_train, y_predict)
     print('Score linear regression', rmse)
 
-
 def regression(x,y):
     model = LinearRegression().fit(x, y)
     return model
-
-
 
 def combinations(df):
     print(len(df))

@@ -42,7 +42,7 @@ def main(path):
     df_lineal = df[lineal_regression].copy()
 
     # Train
-    tree_clf = tree.DecisionTreeClassifier()
+    tree_clf = tree.DecisionTreeClassifier(max_depth=5)
     clf = linear_model.LogisticRegression(
         solver='lbfgs', multi_class='multinomial', max_iter=3000, C=10)
     lineal_reg = linear_model.LinearRegression()
