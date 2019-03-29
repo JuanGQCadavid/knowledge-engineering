@@ -27,8 +27,11 @@ def backpropagation(x,w1, w2, w0, eta, D):
             w1 = w1 + g_d_x1
             w2 = w2 + g_d_x2
             w0 = w0 + g_d_x0
+
+
+            print(f'w0- {w0}, w1- {w1}, w2- {w2}')
         if(d_acum == 0):
-            print(f'The work is done with w values of w0-{w0}, w1-{w1}, w2-{w2} in {itera} iterations')
+        ##print(f'The work is done with w values of w0-{w0}, w1-{w1}, w2-{w2} in {itera} iterations')
             break;
         itera =+ 1
 
